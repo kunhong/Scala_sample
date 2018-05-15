@@ -1,5 +1,6 @@
-
+*.class
 *.xml
 /project/target/
 /target/
 /.idea/
+/project/target/config-classes/
