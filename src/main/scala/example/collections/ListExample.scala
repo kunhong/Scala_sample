@@ -44,9 +44,46 @@ object ListExample {
     // b
     // c
 
-    // 여러 리스트를 병합하는 역할 -> :::
+    // 여러 리스트를 병합하는 역할 -> ::: -> 평탄(flattern) 하게 하는 역할
     // :: -> 리스트의 각 요소를 결합
+    val lst1 = "a" :: "b" :: "c" :: Nil
+    val lst2 = "d" :: "e" :: Nil
+    val lst3 = lst1 ::: lst2 // List.concat() 메서드와 동일 List.::: 와 같이 쓰는 것도 가능 (단 결합되는 순서가 반대)
+    val lst4 = 1 :: 2 :: 3 :: Nil
+    val lst5 = 2 :: 2 :: 4 :: Nil
 
+    for (x <-0 until lst3.size)
+      println(lst3 (x))
+
+    // 리스트 주요 메서드
+    // ++ -> ::: 동일
+    // apply(int) -> List(i)
+    // reverse, max, min, sum
+    // mkString(String) -> 구분자 문자열을 받아서 리스트 내 모든 요소를 구분자로 구분한 문자열을 반환
+    // exists(p: A => Boolean)
+    // contains
+    // isEmpty
+    // distinct
+
+    println("-----------------------------------")
+    println(lst1++lst2) // List(a, b, c, d, e)
+    println(lst1.apply(0)) // a
+    println(lst4.reverse) // List(3, 2, 1)
+    println(lst4.max) // 3
+    println(lst4.min) // 1
+    println(lst4.sum) // 6
+    println(lst4.mkString(",")) // 1,2,3
+    println(lst4.exists(a => a > 3)) // false
+    println(lst4.exists(_ > 3)) // 위와 동일
+    println(lst4.contains(1)) // true
+    println(lst4.isEmpty) // false
+    println(lst5.distinct) // List(2, 4)
+
+    // 리스트나 배열 같은 컬렉션은 Traverable 상속을 받는데, 여기에 컬렉션에 필요한 많은 메서드를 포함한다.
+
+    // Tip
+    // 아래 표현운 모두 같은 뜻이다.
+    // list.toString() == list.toString == list toString
 
   }
 }
