@@ -9,5 +9,10 @@ object TupleExample {
 
     println(tuple.swap) // (apple,10)
 
+    val red = "red" -> "0xff0000"
+    //red: (String, String) = (red,0xff0000)
+    val reversed = red._2 -> red._1
+    println(reversed) // (0xff0000,red)
+
   }
 }
